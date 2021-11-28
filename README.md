@@ -1,1 +1,3 @@
-# demo-schema-registry-and-kafka
+# Publish and Consumer using Kafka with Schema Registry
+
+
