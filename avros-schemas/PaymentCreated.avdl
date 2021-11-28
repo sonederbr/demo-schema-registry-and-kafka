@@ -1,0 +1,7 @@
+@namespace("cap.kafkaavro.payment.events")
+protocol PaymentCreated {
+  record PaymentCreated {
+    string                  id;
+    double                  amount;
+  }
+}

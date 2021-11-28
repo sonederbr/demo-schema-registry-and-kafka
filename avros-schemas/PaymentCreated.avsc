@@ -1,0 +1,12 @@
+{
+  "type" : "record",
+  "name" : "PaymentCreated",
+  "namespace" : "cap.kafkaavro.payment.events",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "string"
+  }, {
+    "name" : "amount",
+    "type" : "double"
+  } ]
+}

@@ -1,0 +1,7 @@
+@namespace("cap.kafkaavro.demo")
+protocol Payment {
+  record Payment {
+    string                  id;
+    double                  amount;
+  }
+}

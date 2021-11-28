@@ -1,0 +1,63 @@
+cap.kafkaavro.payment.events.PaymentCreated
+{
+  "type" : "record",
+  "name" : "PaymentCreated",
+  "namespace" : "cap.kafkaavro.payment.events",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "string"
+  }, {
+    "name" : "amount",
+    "type" : "double"
+  } ]
+}
+http://localhost:8084/ui/clusters/local/schemas
+
+
+@namespace("cap.kafkaavro.payment.events")
+protocol PaymentCreated {
+  record PaymentCreated {
+    string                  id;
+    double                  amount;
+  }
+}
+
+@namespace("cap.kafkaavro.payment.events")
+protocol PaymentCreated {
+  record PaymentCreated {
+    string                  id;
+    double                  amount;
+    union { null, long }    externalNumber = null;
+  }
+}
+
+@namespace("cap.kafkaavro.payment.events")
+protocol PaymentCreated {
+  record PaymentCreated {
+    string                  id;
+    double                  amount;
+    union { null, long }    externalNumber = null;
+    array<string>           tags;
+  }
+}
+
+@namespace("cap.kafkaavro.payment.events")
+protocol PaymentCreated {
+  record PaymentCreated {
+    string                  id;
+    double                  amount;
+    union { null, long }    externalNumber = null;
+    union { null, array<string> } tags = null;
+  }
+}
+
+@namespace("cap.kafkaavro.payment.events")
+protocol PaymentCreated {
+  record PaymentCreated {
+    string                  id;
+    double                  amount;
+    union { null, array<string> } tags = null;
+  }
+}
+java -jar .\avro-tools-1.11.0.jar idl2schemata .\PaymentCreated.avdl .
+avrogen -s .\PaymentCreated.avsc .
